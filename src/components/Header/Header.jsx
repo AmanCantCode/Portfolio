@@ -1,34 +1,3 @@
-// import { useEffect, useRef } from "react";
-// import styles from "./Header.module.css";
-// import AnimatedText from "../AnimatedText/AnimatedText.jsx";
-
-// function Header() {
-//   const navRef = useRef(null);
-
-//   return (
-//     <div className={styles.hero}>
-//       <nav ref={navRef} className={styles.nav_bar}>
-//         <div className={styles.nav_left}>Welcome to my portfolio</div>
-//         <ul className={styles.nav_right}>
-//           <li><a href="#about_section">About</a></li>
-//           <li><a href="#experience_section">Experience</a></li>
-//           <li><a href="#projects_section">Projects</a></li>
-//         </ul>
-//       </nav>
-
-//       <div className={styles.hero_text}>
-//         <AnimatedText text="AMAN BHAYANI" />
-//         <p>Kennesaw State University ⋅ Computer Science Student</p>
-//         <p>4.0 GPA ⋅ Dean's List</p>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-// export default Header;
-
-
 import { useState, useRef, useEffect } from "react";
 import styles from "./Header.module.css";
 import AnimatedText from "../AnimatedText/AnimatedText.jsx";
