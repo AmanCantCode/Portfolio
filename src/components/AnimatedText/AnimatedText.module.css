@@ -1,0 +1,44 @@
+
+
+.title {
+  font-family: "IBM Plex Mono", monospace;
+  display: inline-flex;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.char {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  height: 1em;
+}
+
+.top,
+.bottom {
+  display: block;
+  line-height: 1;
+
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.top {
+  transform: translateY(0%);
+}
+
+.bottom {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.title:hover .top {
+  transform: translateY(-100%);
+}
+
+.title:hover .bottom {
+  transform: translateY(-100%);
+}
