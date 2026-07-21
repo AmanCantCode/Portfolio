@@ -1,36 +1,76 @@
-import AnimatedText from "../AnimatedText/AnimatedText.jsx"
+import AnimatedText from "../AnimatedText/AnimatedText.jsx";
 import ProjectCard from "../ProjectCard/ProjectCard.jsx";
 import styles from "./Projects.module.css";
 
-function Projects () {
-    return(
+function Projects() {
+    return (
         <div id="projects_section">
-            <AnimatedText text = "PROJECTS" / >
+            <AnimatedText text="PROJECTS" />
 
             <div className={styles.grid}>
 
-                {/* project 1 */}
+                {/* Project 1 */}
                 <ProjectCard
-                title="Senior Project - Grocery List App"
-                description="Cross-platform Flutter app using Supabase authentication and database. Supports shared grocery lists with real-time collaboration and integrates a third-party nutrition API."
-                // description= "Built a cross-platform Flutter application with Supabase authentication and database, enabling secure user sign-in and real-time data synchronization. Designed a shared grocery list system supporting multiple users within a single group, allowing collaborative item management and updates. Integrated a third-party nutrition API to fetch food and nutritional information directly within the app. Produced thorough technical documentation throughout development, covering system design, features, and implementation decisions."
-                tags={["FLUTTER", "SUPABASE", "API", "AUTH"]}
+                    title="Shared Grocery List App"
+                    description="Full-stack Flutter app using Supabase authentication and PostgreSQL. Supports shared grocery lists with real-time collaboration and integrates a nutrition API."
+                    tags={[
+                        "FLUTTER",
+                        "SUPABASE",
+                        "POSTGRESQL",
+                        "API"
+                    ]}
                 />
 
-                {/* project 2 */}
+                {/* Project 2 */}
                 <ProjectCard
-                title="Student Portal Simulation App"
-                description="Android application simulating a classroom portal. Built with Kotlin using MVVM architecture, Jetpack Navigation, ViewModel, and LiveData."
-                tags={["KOTLIN", "ANDROID", "MVVM"]}
+                    title="Student Portal Simulation App"
+                    description="Android application simulating a classroom portal. Built with Kotlin using MVVM architecture, Jetpack Navigation, ViewModel, and LiveData."
+                    tags={[
+                        "KOTLIN",
+                        "ANDROID",
+                        "MVVM",
+                        "JETPACK"
+                    ]}
                 />
 
-                
+                {/* Project 3 */}
+                <ProjectCard
+                    title="Decaf20 Compiler"
+                    description="Compiler for the Decaf20 language in Python featuring lexical analysis, recursive-descent parsing, and Abstract Syntax Tree generation."
+                    tags={[
+                        "PYTHON",
+                        "COMPILER",
+                        "LEXER",
+                        "PARSER"
+                    ]}
+                />
+
+                {/* Project 4 */}
+                <ProjectCard
+                    title="Movie Data Mining & Analysis"
+                    description="Analyzed the 32M MovieLens dataset using Python and Pandas. Applied PCA, clustering, decision trees, and data visualization to identify trends."
+                    tags={[
+                        "PYTHON",
+                        "PANDAS",
+                        "DATA MINING",
+                    ]}
+                />
+
+                {/* Project 5 */}
+                <ProjectCard
+                    title="CPU Scheduling Simulator"
+                    description="C# simulator implementing FCFS, SJF, RR, SRTF, and HRRN scheduling algorithms with performance analysis across varied workloads."
+                    tags={[
+                        "C#",
+                        ".NET",
+                        "ALGORITHMS",
+                        "SIMULATION"
+                    ]}
+                />
+
             </div>
-            
         </div>
-
-        
     );
 }
 
-export default Projects
+export default Projects;
