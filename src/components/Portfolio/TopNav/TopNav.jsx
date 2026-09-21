@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import styles from "./TopNav.module.css";
 
@@ -19,15 +18,17 @@ function TopNav({ onExplore }) {
   }, [theme]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
+  const isMobileDrawer = window.matchMedia("(max-width: 699px)").matches;
+  document.body.style.overflow = menuOpen && isMobileDrawer ? "hidden" : "";
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [menuOpen]);
 
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
   const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen((v) => !v);
 
   return (
     <nav className={styles.nav}>
@@ -36,26 +37,39 @@ function TopNav({ onExplore }) {
           <span>Portfolio - Aman Bhayani</span>
         </button>
 
-        <div className={styles.icons}>
-          <button title="Home" onClick={scrollTop}>
-            <span className="material-symbols-outlined">home</span>
-          </button>
-          <a title="Email" href="mailto:amanbhayani608@gmail.com">
-            <span className="material-symbols-outlined">send</span>
-          </a>
-          <button title="Projects" onClick={() => onExplore?.("projects")}>
-            <span className="material-symbols-outlined">explore</span>
-          </button>
+        <div className={styles.rightGroup}>
+          <div className={`${styles.icons} ${menuOpen ? styles.iconsOpen : ""}`}>
+            <button title="Home" onClick={scrollTop}>
+              <span className="material-symbols-outlined">home</span>
+            </button>
+            <a title="Email" href="mailto:amanbhayani608@gmail.com">
+              <span className="material-symbols-outlined">send</span>
+            </a>
+            <button title="Projects" onClick={() => onExplore?.("projects")}>
+              <span className="material-symbols-outlined">explore</span>
+            </button>
+            <button
+              title={theme === "dark" ? "Light mode" : "Dark mode"}
+              onClick={toggleTheme}
+            >
+              <span className="material-symbols-outlined">
+                {theme === "dark" ? "light_mode" : "dark_mode"}
+              </span>
+            </button>
+            <button className={styles.avatar} title="Profile" onClick={scrollTop}>
+              AB
+            </button>
+          </div>
+
           <button
-            title={theme === "dark" ? "Light mode" : "Dark mode"}
-            onClick={toggleTheme}
+            className={styles.menuToggle}
+            onClick={toggleMenu}
+            title={menuOpen ? "Close menu" : "Menu"}
+            aria-expanded={menuOpen}
           >
-            <span className="material-symbols-outlined">
-              {theme === "dark" ? "light_mode" : "dark_mode"}
-            </span>
-          </button>
-          <button className={styles.avatar} title="Profile" onClick={scrollTop}>
-            AB
+            <span className={`${styles.bar} ${menuOpen ? styles.bar1Open : ""}`} />
+            <span className={`${styles.bar} ${menuOpen ? styles.bar2Open : ""}`} />
+            <span className={`${styles.bar} ${menuOpen ? styles.bar3Open : ""}`} />
           </button>
         </div>
 

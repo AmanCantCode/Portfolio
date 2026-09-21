@@ -45,7 +45,7 @@ const experience = [
     icon: "◇",
     image: ksuHesaImage,
     description:
-      "Developed a web application for the KSU Engineering Club's HESA project, focusing on building responsive user interfaces and implementing project-specific functionality. Collaborated with the engineering club to develop and refine features based on project requirements.",
+      "Developed a web application for the KSU Engineering Club's HESA project, focusing on building responsive user interfaces and implementing project-specific functionality. Collaborated with the engineering club to develop and refine features based on project requirements. Vist joinhesa.org",
     tags: ["React", "JavaScript", "Web Development", "GitHub"],
   },
   {
