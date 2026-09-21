@@ -1,0 +1,196 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 60px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: 975px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 400 32px "Grand Hotel", cursive;
+  color: var(--text);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.search {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 7px 12px;
+  width: 240px;
+  color: var(--muted-soft);
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 13px;
+  width: 100%;
+  color: var(--text);
+}
+
+.search input::placeholder { color: var(--muted-soft); }
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.icons button,
+.icons a {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+  display: flex;
+  padding: 0;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.icons button:hover,
+.icons a:hover { opacity: 0.6; }
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  padding: 0 !important;
+
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border) !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  font: 600 10px "IBM Plex Mono", monospace;
+  line-height: 1;
+}
+
+.mobileBar {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.mobileTitle {
+  font: 400 22px "Grand Hotel", cursive;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+.mobileBar button {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+  flex-shrink: 0;
+}
+ 
+.mobileBar :global(.material-symbols-outlined) { font-size: 26px; }
+ 
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+ 
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+ 
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  width: min(78vw, 300px);
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+}
+ 
+.panelOpen {
+  transform: translateX(0);
+}
+ 
+.panelClose {
+  align-self: flex-end;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px;
+  margin-bottom: 12px;
+}
+ 
+.panelClose :global(.material-symbols-outlined) { font-size: 26px; }
+ 
+.panelItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 12px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+ 
+.panelItem:hover { background: var(--surface-2); }
+ 
+.panelItem :global(.material-symbols-outlined) { font-size: 22px; }
+ 
+@media (max-width: 700px) {
+  .brand,
+  .icons { display: none; }
+ 
+  .mobileBar { display: flex; }
+}
+ 

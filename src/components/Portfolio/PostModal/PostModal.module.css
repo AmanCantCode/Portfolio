@@ -1,0 +1,293 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+.close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.close :global(.material-symbols-outlined) {
+  font-size: 28px;
+}
+
+.modal {
+  width: min(880px, 100%);
+  max-height: 88vh;
+  margin: auto 0;
+  display: grid;
+  grid-template-columns: 58% 42%;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "visual header"
+    "visual caption"
+    "visual actions";
+  background: var(--surface);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+}
+
+.visual,
+.visualPhoto {
+  grid-area: visual;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+}
+
+.header {
+  grid-area: header;
+}
+
+.caption {
+  grid-area: caption;
+}
+
+.actions {
+  grid-area: actions;
+}
+
+.visual {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #111411 0%, #1a1d1a 100%);
+}
+
+.visual > span {
+  color: var(--accent);
+  font: 600 34px "IBM Plex Mono", monospace;
+}
+
+.visual label {
+  color: var(--accent);
+  font: 600 10px "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
+.visual h2 {
+  margin: 8px 0 5px;
+  color: white;
+  font-size: 26px;
+}
+
+.visual p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.visualPhoto {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  isolation: isolate;
+  background: #111411;
+}
+
+.visualPhoto .photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.visualPhoto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+.visualPhoto > span {
+  color: #fff;
+  font: 600 34px "IBM Plex Mono", monospace;
+}
+
+.visualPhoto label {
+  color: #fff;
+  font: 600 10px "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+}
+
+.visualPhoto h2 {
+  margin: 8px 0 5px;
+  color: white;
+  font-size: 26px;
+}
+
+.visualPhoto p {
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font: 600 10px "IBM Plex Mono", monospace;
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+}
+
+.who strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.who strong :global(.material-symbols-outlined) {
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.who span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.caption {
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.caption p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.captionAuthor {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tags span {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.actions {
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  padding: 12px 14px 16px;
+}
+
+.iconRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.iconRow button,
+.iconRow a {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  text-decoration: none;
+}
+
+.iconRow :global(.material-symbols-outlined) {
+  font-size: 24px;
+}
+
+.saveBtn {
+  margin-left: auto;
+}
+
+.date {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+}
+
+@media (max-width: 700px) {
+  .modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "header"
+      "visual"
+      "actions";
+    max-height: none;
+    width: 100%;
+  }
+
+  .header,
+  .actions {
+    border-left: 0;
+  }
+
+  .visual,
+  .visualPhoto {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .visual > span {
+    display: none;
+  }
+
+  .visualPhoto > span {
+    display: none;
+  }
+
+  .caption {
+    display: none;
+  }
+}

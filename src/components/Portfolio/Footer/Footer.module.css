@@ -1,0 +1,34 @@
+.footer {
+  margin-top: 40px;
+  padding: 28px 0 60px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.links button,
+.links a {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  padding: 0;
+}
+
+.links button:hover,
+.links a:hover { text-decoration: underline; }
+
+.footer small {
+  color: var(--muted-soft);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}

@@ -1,0 +1,14 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.profile {
+  width: min(100%, 935px);
+  margin: auto;
+  padding: 30px 22px 0;
+}
+
+@media (max-width: 600px) {
+  .profile { padding: 18px 12px 0; }
+}
