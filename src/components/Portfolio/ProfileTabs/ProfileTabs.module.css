@@ -40,6 +40,14 @@
 }
 
 @media (max-width: 500px) {
-  .tabs { gap: 36px; }
+  .tabs { gap: 0; }
+
+  .tabs button {
+    flex: 1;
+    justify-content: center;
+  }
+
   .tabs button span:last-child { display: none; }
+
+  .tabs button :global(.material-symbols-outlined) { font-size: 22px; }
 }
