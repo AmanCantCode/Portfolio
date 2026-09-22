@@ -2,7 +2,7 @@ import styles from "./ProfileTabs.module.css";
 
 function ProfileTabs({ tab, onChange }) {
   return (
-    <div className={styles.tabs}>
+    <div id="profile-tabs" className={styles.tabs}>
       <button
         className={tab === "experience" ? styles.active : ""}
         onClick={() => onChange("experience")}

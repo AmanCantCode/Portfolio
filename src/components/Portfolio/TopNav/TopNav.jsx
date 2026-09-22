@@ -26,6 +26,22 @@ function TopNav({ onExplore }) {
 }, [menuOpen]);
 
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToProjects = () => {
+    onExplore?.("projects");
+
+    requestAnimationFrame(() => {
+      const tabs = document.getElementById("profile-tabs");
+
+      if (!tabs) return;
+
+      const y = tabs.getBoundingClientRect().top + window.scrollY - 60;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    });
+  };
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
   const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen((v) => !v);
@@ -45,7 +61,7 @@ function TopNav({ onExplore }) {
             <a title="Email" href="mailto:amanbhayani608@gmail.com">
               <span className="material-symbols-outlined">send</span>
             </a>
-            <button title="Projects" onClick={() => onExplore?.("projects")}>
+            <button title="Projects" onClick={scrollToProjects}>
               <span className="material-symbols-outlined">explore</span>
             </button>
             <button
@@ -114,8 +130,8 @@ function TopNav({ onExplore }) {
         <button
           className={styles.panelItem}
           onClick={() => {
-            onExplore?.("projects");
             closeMenu();
+            scrollToProjects();
           }}
         >
           <span className="material-symbols-outlined">explore</span>

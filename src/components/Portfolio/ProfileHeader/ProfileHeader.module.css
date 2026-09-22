@@ -194,5 +194,9 @@
 
   .actions { justify-content: center; }
 
-  .stats { justify-content: center; }
+  .stats {
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 0;
+  }
 }

@@ -1,7 +1,7 @@
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 64px;
+  gap: 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--surface);
@@ -12,12 +12,14 @@
 
 .tabs button {
   position: relative;
+  flex: 1;
   border: 0;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 14px 2px 12px;
   font: 600 11px Inter, sans-serif;
